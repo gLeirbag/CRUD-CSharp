@@ -40,14 +40,14 @@
             this.lblDescricao = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
-            this.dvgTabela = new System.Windows.Forms.DataGridView();
+            this.tabela = new System.Windows.Forms.DataGridView();
             this.btnAtualizar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dvgTabela)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabela)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBoxCodigo
             // 
-            this.txtBoxCodigo.Location = new System.Drawing.Point(26, 86);
+            this.txtBoxCodigo.Location = new System.Drawing.Point(41, 55);
             this.txtBoxCodigo.Name = "txtBoxCodigo";
             this.txtBoxCodigo.Size = new System.Drawing.Size(69, 20);
             this.txtBoxCodigo.TabIndex = 0;
@@ -55,7 +55,7 @@
             // 
             // txtBoxLucro
             // 
-            this.txtBoxLucro.Location = new System.Drawing.Point(129, 86);
+            this.txtBoxLucro.Location = new System.Drawing.Point(144, 55);
             this.txtBoxLucro.Name = "txtBoxLucro";
             this.txtBoxLucro.Size = new System.Drawing.Size(68, 20);
             this.txtBoxLucro.TabIndex = 1;
@@ -63,7 +63,7 @@
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(26, 67);
+            this.lblCodigo.Location = new System.Drawing.Point(41, 36);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(40, 13);
             this.lblCodigo.TabIndex = 2;
@@ -72,7 +72,7 @@
             // lblTaxaLucro
             // 
             this.lblTaxaLucro.AutoSize = true;
-            this.lblTaxaLucro.Location = new System.Drawing.Point(126, 70);
+            this.lblTaxaLucro.Location = new System.Drawing.Point(141, 39);
             this.lblTaxaLucro.Name = "lblTaxaLucro";
             this.lblTaxaLucro.Size = new System.Drawing.Size(34, 13);
             this.lblTaxaLucro.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             // txtBoxPreco
             // 
-            this.txtBoxPreco.Location = new System.Drawing.Point(129, 136);
+            this.txtBoxPreco.Location = new System.Drawing.Point(144, 105);
             this.txtBoxPreco.Name = "txtBoxPreco";
             this.txtBoxPreco.Size = new System.Drawing.Size(68, 20);
             this.txtBoxPreco.TabIndex = 4;
@@ -88,7 +88,7 @@
             // lblPreco
             // 
             this.lblPreco.AutoSize = true;
-            this.lblPreco.Location = new System.Drawing.Point(126, 120);
+            this.lblPreco.Location = new System.Drawing.Point(141, 89);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(35, 13);
             this.lblPreco.TabIndex = 5;
@@ -97,7 +97,7 @@
             // lblDataValidade
             // 
             this.lblDataValidade.AutoSize = true;
-            this.lblDataValidade.Location = new System.Drawing.Point(506, 64);
+            this.lblDataValidade.Location = new System.Drawing.Point(521, 33);
             this.lblDataValidade.Name = "lblDataValidade";
             this.lblDataValidade.Size = new System.Drawing.Size(89, 13);
             this.lblDataValidade.TabIndex = 7;
@@ -106,7 +106,7 @@
             // CalDataValidade
             // 
             this.CalDataValidade.CalendarDimensions = new System.Drawing.Size(2, 1);
-            this.CalDataValidade.Location = new System.Drawing.Point(509, 86);
+            this.CalDataValidade.Location = new System.Drawing.Point(524, 55);
             this.CalDataValidade.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
             this.CalDataValidade.MaxSelectionCount = 1;
             this.CalDataValidade.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
@@ -115,7 +115,7 @@
             // 
             // txtBoxDescricao
             // 
-            this.txtBoxDescricao.Location = new System.Drawing.Point(217, 86);
+            this.txtBoxDescricao.Location = new System.Drawing.Point(232, 55);
             this.txtBoxDescricao.Multiline = true;
             this.txtBoxDescricao.Name = "txtBoxDescricao";
             this.txtBoxDescricao.Size = new System.Drawing.Size(280, 162);
@@ -124,7 +124,7 @@
             // lblDescricao
             // 
             this.lblDescricao.AutoSize = true;
-            this.lblDescricao.Location = new System.Drawing.Point(214, 70);
+            this.lblDescricao.Location = new System.Drawing.Point(229, 39);
             this.lblDescricao.Name = "lblDescricao";
             this.lblDescricao.Size = new System.Drawing.Size(55, 13);
             this.lblDescricao.TabIndex = 10;
@@ -132,7 +132,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(29, 212);
+            this.btnSalvar.Location = new System.Drawing.Point(44, 181);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 11;
@@ -142,43 +142,41 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(122, 212);
+            this.btnExcluir.Location = new System.Drawing.Point(137, 181);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 12;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             // 
-            // dvgTabela
+            // tabela
             // 
-            this.dvgTabela.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dvgTabela.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dvgTabela.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dvgTabela.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.dvgTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgTabela.Location = new System.Drawing.Point(29, 335);
-            this.dvgTabela.Name = "dvgTabela";
-            this.dvgTabela.Size = new System.Drawing.Size(938, 191);
-            this.dvgTabela.TabIndex = 13;
+            this.tabela.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tabela.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.tabela.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabela.Location = new System.Drawing.Point(44, 304);
+            this.tabela.Name = "tabela";
+            this.tabela.Size = new System.Drawing.Size(938, 191);
+            this.tabela.TabIndex = 13;
             // 
             // btnAtualizar
             // 
             this.btnAtualizar.AllowDrop = true;
-            this.btnAtualizar.Location = new System.Drawing.Point(29, 541);
+            this.btnAtualizar.Location = new System.Drawing.Point(44, 510);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(75, 23);
             this.btnAtualizar.TabIndex = 14;
             this.btnAtualizar.Text = "Atualizar Tabela";
             this.btnAtualizar.UseVisualStyleBackColor = true;
-            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // JanelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 586);
+            this.ClientSize = new System.Drawing.Size(1000, 586);
             this.Controls.Add(this.btnAtualizar);
-            this.Controls.Add(this.dvgTabela);
+            this.Controls.Add(this.tabela);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.lblDescricao);
@@ -193,7 +191,7 @@
             this.Controls.Add(this.txtBoxCodigo);
             this.Name = "JanelaPrincipal";
             this.Text = "JanelaPrincipal";
-            ((System.ComponentModel.ISupportInitialize)(this.dvgTabela)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabela)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,7 +211,7 @@
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnExcluir;
-        private System.Windows.Forms.DataGridView dvgTabela;
+        private System.Windows.Forms.DataGridView tabela;
         private System.Windows.Forms.Button btnAtualizar;
     }
 }

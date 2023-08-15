@@ -12,11 +12,22 @@ namespace CRUD_CSharp
     {
         // Constante de conexão com o banco de dados. Ficar de olho na senha. Isso em C# é um membro da classe categorizado como "constante".
         private const string StringConexao = "Server=localhost;Port=5432;User Id=postgres;Password=G4briel1;Database=tocc8;";
-
-        //NpgsqlDataSource representa seu banco de dados PostgreSQL e pode fornecer conexões a ele ou suportar a execução direta de SQL nele.
-        //NpgsqlDataSource encapsula as várias configurações do Npgsql necessárias para se conectar ao PostgreSQL, bem como o pool de conexões que torna o Npgsql eficiente.
         public static readonly NpgsqlDataSource DataSource = NpgsqlDataSource.Create(StringConexao);
         
+
+        //public static void abrirConexao()
+        //{
+        //    if (dataSource == null)
+        //    {
+        //        dataSource = NpgsqlDataSource.Create(StringConexao);
+        //        return;
+        //    }
+        //    else
+        //    {
+        //          throw new Exception("Já há uma conexão aberta");
+        //    }
+        //}
+
 
     }
 }
