@@ -15,8 +15,11 @@ namespace CRUD_CSharp.Model
         {
             try
             {
+                //A classe NpgsqlCommand representa uma instrução SQL ou procedimento armazenado para executar contra um banco de dados PostgreSQL.
                 NpgsqlCommand comando = Banco.DataSource.CreateCommand("INSERT INTO produtos (descricao, datavalidade, preco, taxalucro) VALUES (@descricao, @data_validade, @preco, @taxa_lucro) RETURNING codigo");
             
+                //Adiciona os parâmetros ao comando SQL, evitando SQL Injection.
+                //O método AddWithValue adiciona um parâmetro com o nome e o valor especificados.
                 comando.Parameters.AddWithValue("@descricao", produto.Descricao);
                 comando.Parameters.AddWithValue("@data_validade", produto.DataValidade);
                 comando.Parameters.AddWithValue("@preco", produto.Preco);
