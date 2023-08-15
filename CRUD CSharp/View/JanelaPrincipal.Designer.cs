@@ -28,32 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBoxCodigo = new System.Windows.Forms.TextBox();
+            this.txtBoxLucro = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblTaxaLucro = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtBoxPreco = new System.Windows.Forms.TextBox();
             this.lblPreco = new System.Windows.Forms.Label();
+            this.lblDataValidade = new System.Windows.Forms.Label();
+            this.CalDataValidade = new System.Windows.Forms.MonthCalendar();
+            this.txtBoxDescricao = new System.Windows.Forms.TextBox();
+            this.lblDescricao = new System.Windows.Forms.Label();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.tabela = new System.Windows.Forms.DataGridView();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.tabela)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtBoxCodigo
             // 
-            this.textBox1.Location = new System.Drawing.Point(75, 92);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtBoxCodigo.Location = new System.Drawing.Point(41, 55);
+            this.txtBoxCodigo.Name = "txtBoxCodigo";
+            this.txtBoxCodigo.Size = new System.Drawing.Size(69, 20);
+            this.txtBoxCodigo.TabIndex = 0;
+            this.txtBoxCodigo.Text = "00";
             // 
-            // textBox2
+            // txtBoxLucro
             // 
-            this.textBox2.Location = new System.Drawing.Point(243, 91);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtBoxLucro.Location = new System.Drawing.Point(144, 55);
+            this.txtBoxLucro.Name = "txtBoxLucro";
+            this.txtBoxLucro.Size = new System.Drawing.Size(68, 20);
+            this.txtBoxLucro.TabIndex = 1;
             // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(75, 73);
+            this.lblCodigo.Location = new System.Drawing.Point(41, 36);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(40, 13);
             this.lblCodigo.TabIndex = 2;
@@ -62,41 +72,126 @@
             // lblTaxaLucro
             // 
             this.lblTaxaLucro.AutoSize = true;
-            this.lblTaxaLucro.Location = new System.Drawing.Point(240, 75);
+            this.lblTaxaLucro.Location = new System.Drawing.Point(141, 39);
             this.lblTaxaLucro.Name = "lblTaxaLucro";
             this.lblTaxaLucro.Size = new System.Drawing.Size(34, 13);
             this.lblTaxaLucro.TabIndex = 3;
             this.lblTaxaLucro.Text = "Lucro";
             // 
-            // textBox3
+            // txtBoxPreco
             // 
-            this.textBox3.Location = new System.Drawing.Point(243, 136);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
+            this.txtBoxPreco.Location = new System.Drawing.Point(144, 105);
+            this.txtBoxPreco.Name = "txtBoxPreco";
+            this.txtBoxPreco.Size = new System.Drawing.Size(68, 20);
+            this.txtBoxPreco.TabIndex = 4;
             // 
             // lblPreco
             // 
             this.lblPreco.AutoSize = true;
-            this.lblPreco.Location = new System.Drawing.Point(240, 120);
+            this.lblPreco.Location = new System.Drawing.Point(141, 89);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(35, 13);
             this.lblPreco.TabIndex = 5;
             this.lblPreco.Text = "Preço";
+            // 
+            // lblDataValidade
+            // 
+            this.lblDataValidade.AutoSize = true;
+            this.lblDataValidade.Location = new System.Drawing.Point(521, 33);
+            this.lblDataValidade.Name = "lblDataValidade";
+            this.lblDataValidade.Size = new System.Drawing.Size(89, 13);
+            this.lblDataValidade.TabIndex = 7;
+            this.lblDataValidade.Text = "Data de Validade";
+            // 
+            // CalDataValidade
+            // 
+            this.CalDataValidade.CalendarDimensions = new System.Drawing.Size(2, 1);
+            this.CalDataValidade.Location = new System.Drawing.Point(524, 55);
+            this.CalDataValidade.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
+            this.CalDataValidade.MaxSelectionCount = 1;
+            this.CalDataValidade.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
+            this.CalDataValidade.Name = "CalDataValidade";
+            this.CalDataValidade.TabIndex = 8;
+            // 
+            // txtBoxDescricao
+            // 
+            this.txtBoxDescricao.Location = new System.Drawing.Point(232, 55);
+            this.txtBoxDescricao.Multiline = true;
+            this.txtBoxDescricao.Name = "txtBoxDescricao";
+            this.txtBoxDescricao.Size = new System.Drawing.Size(280, 162);
+            this.txtBoxDescricao.TabIndex = 9;
+            // 
+            // lblDescricao
+            // 
+            this.lblDescricao.AutoSize = true;
+            this.lblDescricao.Location = new System.Drawing.Point(229, 39);
+            this.lblDescricao.Name = "lblDescricao";
+            this.lblDescricao.Size = new System.Drawing.Size(55, 13);
+            this.lblDescricao.TabIndex = 10;
+            this.lblDescricao.Text = "Descrição";
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Location = new System.Drawing.Point(44, 181);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 11;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(137, 181);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.TabIndex = 12;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            // 
+            // tabela
+            // 
+            this.tabela.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.tabela.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.tabela.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabela.Location = new System.Drawing.Point(44, 304);
+            this.tabela.Name = "tabela";
+            this.tabela.Size = new System.Drawing.Size(938, 191);
+            this.tabela.TabIndex = 13;
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.AllowDrop = true;
+            this.btnAtualizar.Location = new System.Drawing.Point(44, 510);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnAtualizar.TabIndex = 14;
+            this.btnAtualizar.Text = "Atualizar Tabela";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
             // 
             // JanelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 586);
+            this.Controls.Add(this.btnAtualizar);
+            this.Controls.Add(this.tabela);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.lblDescricao);
+            this.Controls.Add(this.txtBoxDescricao);
+            this.Controls.Add(this.CalDataValidade);
+            this.Controls.Add(this.lblDataValidade);
             this.Controls.Add(this.lblPreco);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtBoxPreco);
             this.Controls.Add(this.lblTaxaLucro);
             this.Controls.Add(this.lblCodigo);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBoxLucro);
+            this.Controls.Add(this.txtBoxCodigo);
             this.Name = "JanelaPrincipal";
             this.Text = "JanelaPrincipal";
+            ((System.ComponentModel.ISupportInitialize)(this.tabela)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,11 +199,19 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBoxCodigo;
+        private System.Windows.Forms.TextBox txtBoxLucro;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Label lblTaxaLucro;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtBoxPreco;
         private System.Windows.Forms.Label lblPreco;
+        private System.Windows.Forms.Label lblDataValidade;
+        private System.Windows.Forms.MonthCalendar CalDataValidade;
+        private System.Windows.Forms.TextBox txtBoxDescricao;
+        private System.Windows.Forms.Label lblDescricao;
+        private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.DataGridView tabela;
+        private System.Windows.Forms.Button btnAtualizar;
     }
 }

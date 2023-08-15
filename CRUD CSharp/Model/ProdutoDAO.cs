@@ -15,13 +15,12 @@ namespace CRUD_CSharp.Model
         {
             try
             {
-                NpgsqlCommand comando = Banco.DataSource.CreateCommand("INSERT INTO produtos (descricao, data_validade, preco, taxa_lucro) VALUES (@descricao, @data_validade, @preco, @taxa_lucro) RETURNING id");
+                NpgsqlCommand comando = Banco.DataSource.CreateCommand("INSERT INTO produtos (descricao, datavalidade, preco, taxalucro) VALUES (@descricao, @data_validade, @preco, @taxa_lucro) RETURNING codigo");
             
                 comando.Parameters.AddWithValue("@descricao", produto.Descricao);
                 comando.Parameters.AddWithValue("@data_validade", produto.DataValidade);
                 comando.Parameters.AddWithValue("@preco", produto.Preco);
                 comando.Parameters.AddWithValue("@taxa_lucro", produto.TaxaLucro);
-                comando.Prepare();
 
                 return comando.ExecuteNonQuery();
             }
