@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRUD_CSharp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +18,9 @@ namespace CRUD_CSharp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            MessageBox.Show("Teste");
+            ProdutoDAO.Listar();
         }
     }
 }
