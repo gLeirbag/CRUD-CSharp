@@ -42,6 +42,9 @@
             this.btnExcluir = new System.Windows.Forms.Button();
             this.dvgTabela = new System.Windows.Forms.DataGridView();
             this.btnAtualizar = new System.Windows.Forms.Button();
+            this.txtBoxPesquisarDesc = new System.Windows.Forms.TextBox();
+            this.lblDescPesquisar = new System.Windows.Forms.Label();
+            this.btnGraf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgTabela)).BeginInit();
             this.SuspendLayout();
             // 
@@ -172,11 +175,44 @@
             this.btnAtualizar.UseVisualStyleBackColor = true;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
+            // txtBoxPesquisarDesc
+            // 
+            this.txtBoxPesquisarDesc.Location = new System.Drawing.Point(29, 309);
+            this.txtBoxPesquisarDesc.Name = "txtBoxPesquisarDesc";
+            this.txtBoxPesquisarDesc.Size = new System.Drawing.Size(316, 20);
+            this.txtBoxPesquisarDesc.TabIndex = 15;
+            this.txtBoxPesquisarDesc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoxPesquisarCodigo_KeyUp);
+            // 
+            // lblDescPesquisar
+            // 
+            this.lblDescPesquisar.AutoSize = true;
+            this.lblDescPesquisar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDescPesquisar.Location = new System.Drawing.Point(26, 288);
+            this.lblDescPesquisar.Name = "lblDescPesquisar";
+            this.lblDescPesquisar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblDescPesquisar.Size = new System.Drawing.Size(124, 15);
+            this.lblDescPesquisar.TabIndex = 16;
+            this.lblDescPesquisar.Text = "Pesquisar por Descrição";
+            this.lblDescPesquisar.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // btnGraf
+            // 
+            this.btnGraf.Location = new System.Drawing.Point(122, 541);
+            this.btnGraf.Name = "btnGraf";
+            this.btnGraf.Size = new System.Drawing.Size(75, 23);
+            this.btnGraf.TabIndex = 17;
+            this.btnGraf.Text = "Gráfico";
+            this.btnGraf.UseVisualStyleBackColor = true;
+            this.btnGraf.Click += new System.EventHandler(this.btnGraf_Click);
+            // 
             // JanelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 586);
+            this.Controls.Add(this.btnGraf);
+            this.Controls.Add(this.lblDescPesquisar);
+            this.Controls.Add(this.txtBoxPesquisarDesc);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.dvgTabela);
             this.Controls.Add(this.btnExcluir);
@@ -215,5 +251,8 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.DataGridView dvgTabela;
         private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.TextBox txtBoxPesquisarDesc;
+        private System.Windows.Forms.Label lblDescPesquisar;
+        private System.Windows.Forms.Button btnGraf;
     }
 }

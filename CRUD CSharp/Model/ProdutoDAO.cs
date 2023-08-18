@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -50,6 +51,28 @@ namespace CRUD_CSharp.Model
             {
                 throw ex;
             }
+
         }
+
+        public static DataTable Listar(string descricao)
+        {
+            try
+            { 
+                NpgsqlCommand comando = Banco.DataSource.CreateCommand("SELECT * FROM produtos WHERE descricao LIKE @des");
+                comando.Parameters.AddWithValue("@des", "%" + descricao + "%");
+                NpgsqlDataReader reader = comando.ExecuteReader();
+                var tabela = new DataTable();
+                tabela.Load(reader);
+
+                return tabela;
+            }
+            catch (Exception e )
+            {
+
+                throw e;
+            }
+        }
+
+
     }
 }
