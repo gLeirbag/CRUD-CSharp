@@ -12,6 +12,19 @@ namespace CRUD_CSharp.Model
 {
     public static class ProdutoDAO
     {
+        public static void Excluir(int codigo)
+        {
+            try
+            {
+                NpgsqlCommand comando = Banco.DataSource.CreateCommand("DELETE FROM produtos WHERE codigo = @codigo");
+                comando.Parameters.AddWithValue("@codigo", codigo);
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public static int Inserir(Produto produto)
         {
             try
@@ -73,6 +86,54 @@ namespace CRUD_CSharp.Model
             }
         }
 
+        public static Produto Recuperar(int codigo)
+        {
+            try
+            {
+                NpgsqlCommand comando = Banco.DataSource.CreateCommand("SELECT * FROM produtos WHERE codigo = @codigo");
+                comando.Parameters.AddWithValue("@codigo", codigo);
+                NpgsqlDataReader reader = comando.ExecuteReader();
+                var tabela = new DataTable();
+                tabela.Load(reader);
+
+                Produto produto = new Produto();
+                produto.Codigo = codigo;
+
+
+                produto.Descricao = tabela.Rows[0]["descricao"].ToString();
+                produto.DataValidade = DateTime.Parse(tabela.Rows[0]["datavalidade"].ToString());
+                produto.Preco = double.Parse(tabela.Rows[0]["preco"].ToString());
+                produto.TaxaLucro = double.Parse(tabela.Rows[0]["taxalucro"].ToString());
+
+                return produto;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void Editar(Produto produto)
+        {
+            try
+            {
+                NpgsqlCommand comando = Banco.DataSource.CreateCommand("UPDATE produtos " +
+                                                                       "SET descricao = @des, datavalidade = @dv, preco = @pr, taxalucro = @tx " +
+                                                                       "WHERE codigo = @cod");
+                comando.Parameters.AddWithValue("@des", produto.Descricao);
+                comando.Parameters.AddWithValue("@dv", produto.DataValidade);
+                comando.Parameters.AddWithValue("@pr", produto.Preco);
+                comando.Parameters.AddWithValue("@tx", produto.TaxaLucro);
+                comando.Parameters.AddWithValue("@cod", produto.Codigo);
+
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
     }
 }

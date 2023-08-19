@@ -9,16 +9,16 @@ namespace CRUD_CSharp.Model
     public class Produto
     {
         // Propriedades, estou tentando usar só propriedades ao invés de métodos getters e setters.
-        public int Id { get; set; }     
-        public string IdString
+        public int Codigo { get; set; }     
+        public string CodigoString
         {
             get
             {
-                return this.Id.ToString();
+                return this.Codigo.ToString();
             }
             set
             {
-                this.Id = int.Parse(value);
+                this.Codigo = int.Parse(value);
             }
         }
 
@@ -37,6 +37,22 @@ namespace CRUD_CSharp.Model
         public double Preco { get; set; }
 
         public double TaxaLucro { get; set; }
+
+        //Construtor com todos os parâmetros
+        public Produto(int cod, string des, DateTime dt, double pr, double tx)
+        {
+            this.Preco = pr;
+            this.TaxaLucro = tx;
+            this.Codigo = cod;
+            this.Descricao = des;
+            this.DataValidade = dt;
+
+        }
+
+        public Produto()
+        {
+
+        }
        
 
     }

@@ -50,15 +50,15 @@
             // 
             // txtBoxCodigo
             // 
-            this.txtBoxCodigo.Location = new System.Drawing.Point(26, 86);
+            this.txtBoxCodigo.Location = new System.Drawing.Point(54, 86);
             this.txtBoxCodigo.Name = "txtBoxCodigo";
             this.txtBoxCodigo.Size = new System.Drawing.Size(69, 20);
             this.txtBoxCodigo.TabIndex = 0;
-            this.txtBoxCodigo.Text = "00";
+            this.txtBoxCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoxCodigo_KeyUp);
             // 
             // txtBoxLucro
             // 
-            this.txtBoxLucro.Location = new System.Drawing.Point(129, 86);
+            this.txtBoxLucro.Location = new System.Drawing.Point(206, 86);
             this.txtBoxLucro.Name = "txtBoxLucro";
             this.txtBoxLucro.Size = new System.Drawing.Size(68, 20);
             this.txtBoxLucro.TabIndex = 1;
@@ -66,16 +66,16 @@
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(26, 67);
+            this.lblCodigo.Location = new System.Drawing.Point(51, 70);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(40, 13);
+            this.lblCodigo.Size = new System.Drawing.Size(124, 13);
             this.lblCodigo.TabIndex = 2;
-            this.lblCodigo.Text = "Código";
+            this.lblCodigo.Text = "Código(Somente Edição)";
             // 
             // lblTaxaLucro
             // 
             this.lblTaxaLucro.AutoSize = true;
-            this.lblTaxaLucro.Location = new System.Drawing.Point(126, 70);
+            this.lblTaxaLucro.Location = new System.Drawing.Point(203, 70);
             this.lblTaxaLucro.Name = "lblTaxaLucro";
             this.lblTaxaLucro.Size = new System.Drawing.Size(34, 13);
             this.lblTaxaLucro.TabIndex = 3;
@@ -83,7 +83,7 @@
             // 
             // txtBoxPreco
             // 
-            this.txtBoxPreco.Location = new System.Drawing.Point(129, 136);
+            this.txtBoxPreco.Location = new System.Drawing.Point(206, 136);
             this.txtBoxPreco.Name = "txtBoxPreco";
             this.txtBoxPreco.Size = new System.Drawing.Size(68, 20);
             this.txtBoxPreco.TabIndex = 4;
@@ -91,7 +91,7 @@
             // lblPreco
             // 
             this.lblPreco.AutoSize = true;
-            this.lblPreco.Location = new System.Drawing.Point(126, 120);
+            this.lblPreco.Location = new System.Drawing.Point(203, 120);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(35, 13);
             this.lblPreco.TabIndex = 5;
@@ -100,7 +100,7 @@
             // lblDataValidade
             // 
             this.lblDataValidade.AutoSize = true;
-            this.lblDataValidade.Location = new System.Drawing.Point(506, 64);
+            this.lblDataValidade.Location = new System.Drawing.Point(583, 64);
             this.lblDataValidade.Name = "lblDataValidade";
             this.lblDataValidade.Size = new System.Drawing.Size(89, 13);
             this.lblDataValidade.TabIndex = 7;
@@ -109,7 +109,7 @@
             // CalDataValidade
             // 
             this.CalDataValidade.CalendarDimensions = new System.Drawing.Size(2, 1);
-            this.CalDataValidade.Location = new System.Drawing.Point(509, 86);
+            this.CalDataValidade.Location = new System.Drawing.Point(586, 86);
             this.CalDataValidade.MaxDate = new System.DateTime(3000, 12, 31, 0, 0, 0, 0);
             this.CalDataValidade.MaxSelectionCount = 1;
             this.CalDataValidade.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
@@ -118,7 +118,7 @@
             // 
             // txtBoxDescricao
             // 
-            this.txtBoxDescricao.Location = new System.Drawing.Point(217, 86);
+            this.txtBoxDescricao.Location = new System.Drawing.Point(294, 86);
             this.txtBoxDescricao.Multiline = true;
             this.txtBoxDescricao.Name = "txtBoxDescricao";
             this.txtBoxDescricao.Size = new System.Drawing.Size(280, 162);
@@ -127,7 +127,7 @@
             // lblDescricao
             // 
             this.lblDescricao.AutoSize = true;
-            this.lblDescricao.Location = new System.Drawing.Point(214, 70);
+            this.lblDescricao.Location = new System.Drawing.Point(291, 70);
             this.lblDescricao.Name = "lblDescricao";
             this.lblDescricao.Size = new System.Drawing.Size(55, 13);
             this.lblDescricao.TabIndex = 10;
@@ -135,7 +135,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(29, 212);
+            this.btnSalvar.Location = new System.Drawing.Point(54, 212);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 11;
@@ -145,12 +145,13 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(122, 212);
+            this.btnExcluir.Location = new System.Drawing.Point(199, 212);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 12;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // dvgTabela
             // 
@@ -159,15 +160,15 @@
             this.dvgTabela.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dvgTabela.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dvgTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvgTabela.Location = new System.Drawing.Point(29, 335);
+            this.dvgTabela.Location = new System.Drawing.Point(54, 335);
             this.dvgTabela.Name = "dvgTabela";
-            this.dvgTabela.Size = new System.Drawing.Size(938, 191);
+            this.dvgTabela.Size = new System.Drawing.Size(990, 191);
             this.dvgTabela.TabIndex = 13;
             // 
             // btnAtualizar
             // 
             this.btnAtualizar.AllowDrop = true;
-            this.btnAtualizar.Location = new System.Drawing.Point(29, 541);
+            this.btnAtualizar.Location = new System.Drawing.Point(54, 541);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(75, 23);
             this.btnAtualizar.TabIndex = 14;
@@ -177,7 +178,7 @@
             // 
             // txtBoxPesquisarDesc
             // 
-            this.txtBoxPesquisarDesc.Location = new System.Drawing.Point(29, 309);
+            this.txtBoxPesquisarDesc.Location = new System.Drawing.Point(54, 309);
             this.txtBoxPesquisarDesc.Name = "txtBoxPesquisarDesc";
             this.txtBoxPesquisarDesc.Size = new System.Drawing.Size(316, 20);
             this.txtBoxPesquisarDesc.TabIndex = 15;
@@ -187,17 +188,16 @@
             // 
             this.lblDescPesquisar.AutoSize = true;
             this.lblDescPesquisar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDescPesquisar.Location = new System.Drawing.Point(26, 288);
+            this.lblDescPesquisar.Location = new System.Drawing.Point(51, 288);
             this.lblDescPesquisar.Name = "lblDescPesquisar";
             this.lblDescPesquisar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblDescPesquisar.Size = new System.Drawing.Size(124, 15);
             this.lblDescPesquisar.TabIndex = 16;
             this.lblDescPesquisar.Text = "Pesquisar por Descrição";
-            this.lblDescPesquisar.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnGraf
             // 
-            this.btnGraf.Location = new System.Drawing.Point(122, 541);
+            this.btnGraf.Location = new System.Drawing.Point(147, 541);
             this.btnGraf.Name = "btnGraf";
             this.btnGraf.Size = new System.Drawing.Size(75, 23);
             this.btnGraf.TabIndex = 17;
@@ -209,7 +209,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 586);
+            this.ClientSize = new System.Drawing.Size(1150, 586);
             this.Controls.Add(this.btnGraf);
             this.Controls.Add(this.lblDescPesquisar);
             this.Controls.Add(this.txtBoxPesquisarDesc);

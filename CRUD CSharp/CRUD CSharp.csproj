@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Banco.cs" />
+    <Compile Include="Controller\ProdutoController.cs" />
     <Compile Include="Controller\Utilidades.cs" />
     <Compile Include="Model\Produto.cs" />
     <Compile Include="Model\ProdutoDAO.cs" />

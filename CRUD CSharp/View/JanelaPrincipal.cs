@@ -27,22 +27,37 @@ namespace CRUD_CSharp.View
         {
             try 
             {
-                Model.Produto produto = new Model.Produto();
-                produto.Descricao = txtBoxDescricao.Text;
-                produto.DataValidade = CalDataValidade.SelectionStart;
-                
-                produto.Preco = double.Parse(txtBoxPreco.Text);
-                produto.TaxaLucro = double.Parse(txtBoxLucro.Text);
-
-                int retorno = Model.ProdutoDAO.Inserir(produto);
-
-                if (retorno > 0)
+                //Salvar
+                if(txtBoxCodigo.Text.Length == 0)
                 {
-                    MessageBox.Show("Produto inserido com sucesso!");
+                    Model.Produto produto = new Model.Produto();
+                    produto.Descricao = txtBoxDescricao.Text;
+                    produto.DataValidade = CalDataValidade.SelectionStart;
+                
+                    produto.Preco = double.Parse(txtBoxPreco.Text);
+                    produto.TaxaLucro = double.Parse(txtBoxLucro.Text);
+
+                    int retorno = Model.ProdutoDAO.Inserir(produto);
+
+                    if (retorno > 0)
+                    {
+                        MessageBox.Show("Produto inserido com sucesso!");
+                        DataTable resultado = ProdutoController.Listar(txtBoxPesquisarDesc.Text);
+                        dvgTabela.DataSource = resultado;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possível inserir o produto!");
+                    }
+
                 }
+
+                //Editar
                 else
                 {
-                    MessageBox.Show("Não foi possível inserir o produto!");
+                    Model.Produto produto = new Produto( Int32.Parse(txtBoxCodigo.Text), txtBoxDescricao.Text, CalDataValidade.SelectionStart, Int32.Parse(txtBoxPreco.Text) , Int32.Parse(txtBoxLucro.Text));
+                    ProdutoDAO.Editar(produto);
+                    MessageBox.Show("Produto editado com sucesso!");
                 }
             } 
             catch (Exception ex)
@@ -57,31 +72,7 @@ namespace CRUD_CSharp.View
         {
             try
             {
-                DataTable resultado =ProdutoDAO.Listar();
-
-                // Renomeando as colunas
-                resultado.Columns["codigo"].ColumnName =       "Código";
-                resultado.Columns["descricao"].ColumnName =    "Descrição";
-                resultado.Columns["datavalidade"].ColumnName = "Data de Validade";
-                resultado.Columns["preco"].ColumnName =        "Preço";
-                resultado.Columns["taxalucro"].ColumnName =    "Taxa de Lucro";
-
-                //Adicionando coluna do prazo de validade
-                DataColumn prazoValidade = new DataColumn("Prazo de Validade", typeof(int) );
-
-                resultado.Columns.Add(prazoValidade);
-                resultado.Columns["Prazo de Validade"].SetOrdinal(3);
-                //resultado.Columns["Prazo de Validade"].format;
-
-                //Calculando o prazo de validade.
-                foreach (DataRow row in resultado.Rows)
-                {
-                    DateTime data = (DateTime)row["Data de Validade"];
-                    row["Prazo de Validade"] = Utilidades.CalcularPrazoValidade(data).Days;
-                }
-                //resultado.Columns["Prazo de Validade"].DataType = typeof(Day);
-                
-
+                DataTable resultado = ProdutoController.Listar();
                 dvgTabela.DataSource = resultado;
 
             }
@@ -91,40 +82,12 @@ namespace CRUD_CSharp.View
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtBoxPesquisarCodigo_KeyUp(object sender, KeyEventArgs e)
         {
             try
             {
-                DataTable resultado = ProdutoDAO.Listar(txtBoxPesquisarDesc.Text);
-
-                // Renomeando as colunas
-                resultado.Columns["codigo"].ColumnName = "Código";
-                resultado.Columns["descricao"].ColumnName = "Descrição";
-                resultado.Columns["datavalidade"].ColumnName = "Data de Validade";
-                resultado.Columns["preco"].ColumnName = "Preço";
-                resultado.Columns["taxalucro"].ColumnName = "Taxa de Lucro";
-
-                //Adicionando coluna do prazo de validade
-                DataColumn prazoValidade = new DataColumn("Prazo de Validade", typeof(int));
-
-                resultado.Columns.Add(prazoValidade);
-                resultado.Columns["Prazo de Validade"].SetOrdinal(3);
-                //resultado.Columns["Prazo de Validade"].format;
-
-                //Calculando o prazo de validade.
-                foreach (DataRow row in resultado.Rows)
-                {
-                    DateTime data = (DateTime)row["Data de Validade"];
-                    row["Prazo de Validade"] = Utilidades.CalcularPrazoValidade(data).Days;
-                }
-                //resultado.Columns["Prazo de Validade"].DataType = typeof(Day);
-
-
+                DataTable resultado = ProdutoController.Listar(txtBoxPesquisarDesc.Text);
                 dvgTabela.DataSource = resultado;
 
             }
@@ -138,6 +101,54 @@ namespace CRUD_CSharp.View
         {
             new fGrafico().ShowDialog();
             
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+            ProdutoDAO.Excluir(int.Parse(txtBoxCodigo.Text));
+            MessageBox.Show("Produto excluído com sucesso!");
+            DataTable resultado = ProdutoController.Listar(txtBoxPesquisarDesc.Text);
+            dvgTabela.DataSource = resultado;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao deletar"+ex.Message);
+            }
+        }
+
+        private void txtBoxCodigo_KeyUp(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if(txtBoxCodigo.Text.Length > 0)
+                { 
+                    btnSalvar.Text = "Editar";
+                    int codigo = Int32.Parse(txtBoxCodigo.Text);
+
+                    Produto produto = ProdutoDAO.Recuperar(codigo);
+
+                    txtBoxDescricao.Text = produto.Descricao;
+                    txtBoxLucro.Text = produto.TaxaLucro.ToString();
+                    txtBoxPreco.Text = produto.Preco.ToString();
+                    CalDataValidade.SelectionStart = produto.DataValidade;
+
+
+                }
+                else btnSalvar.Text = "Salvar";
+
+                DataTable resultado = ProdutoController.Listar(txtBoxPesquisarDesc.Text);
+                dvgTabela.DataSource = resultado;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Entrada Inválida: "+ ex);
+                txtBoxCodigo.Clear();
+            }
         }
     }
 }
